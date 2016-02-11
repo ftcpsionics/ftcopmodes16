@@ -94,7 +94,7 @@ public class NewTeleOp extends OpMode {
         float leftThrottle = -gamepad1.left_stick_y;
         float leftDirection = gamepad1.left_stick_x;
         float left = leftThrottle + leftDirection;
-        left = Range.clip(left, -1, 1);
+        left = Range.clip(left, -0.9f, 1);
         left =  (float)scaleInput(left);
         motorLeft1.setPower(left);
         motorLeft2.setPower(left);
@@ -102,12 +102,13 @@ public class NewTeleOp extends OpMode {
         float rightThrottle = -gamepad1.right_stick_y;
         float rightDirection = gamepad1.right_stick_x;
         float right = rightThrottle + rightDirection;
-        right = Range.clip(right, -1, 1);
+        right = Range.clip(right, -0.9f, 1);
         right =  (float)scaleInput(right);
         motorRight1.setPower(right);
         motorRight2.setPower(right);
-
         float flowerPower = 0;
+
+
 
         if(left != 0)
             flowerPower = -left;
@@ -187,9 +188,9 @@ public class NewTeleOp extends OpMode {
             doorRight.setPosition(dLeft);
         }
 
-        climberPosition = 1.0f;
+        climberPosition = 0.95f;
         climber.setPosition(climberPosition);
-        climberDelta = 1.0f;
+        climberDelta = 0.95f;
 
         if(gamepad2.dpad_down){
             climberPosition -= climberDelta;
