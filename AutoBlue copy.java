@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class AutoBlueOfficial extends OpMode {
+public class AutoBlue extends OpMode {
 
     final static double MOTOR_POWER = 0.15;
 
@@ -14,8 +14,6 @@ public class AutoBlueOfficial extends OpMode {
     DcMotor motorLeft2;
     DcMotor motorRight1;
     DcMotor motorRight2;
-    //Servo claw;
-    //Servo arm;
     DcMotor motorIntake;
 
     //double armPosition;
@@ -23,7 +21,7 @@ public class AutoBlueOfficial extends OpMode {
     //double armDelta = 0.01;
 
 
-    public AutoBlueOfficial() {
+    public AutoBlue() {
 
     }
 
@@ -39,13 +37,6 @@ public class AutoBlueOfficial extends OpMode {
         motorRight2.setDirection(DcMotor.Direction.REVERSE);
 
 
-        //arm = hardwareMap.servo.get("servo_1");
-        //claw = hardwareMap.servo.get("servo_6");
-
-        // set the starting position of the wrist and claw
-        //armPosition = 0.4;
-        //clawPosition = 0.25;
-
     }
 
     @Override
@@ -55,22 +46,13 @@ public class AutoBlueOfficial extends OpMode {
         double right = 0.0;
         double intake = 0;
 
-        if(this.time > 0 && this.time <=6.00){ //wait 6 sec
+        if(this.time > 0 && this.time <=3.00){
             left = 0.0;
             right = 0.0;
         }
-        else if(this.time > 6.00 && this.time <= 6.50){ //go forward a little 6.5
-            left = 0.3;
-            right = 0.3;
-            intake = -1;
-        } else if (this.time > 6.50 && this.time <= 7.05){ //turn 45 degrees right //1
-            left = 0.8;
-            right = -0.8;
-            intake = -1;
-        }
-        else if(this.time > 7.05 && this.time <= 9.9){ //go forward to floor goal
-            left = 0.3;
-            right = 0.3;
+        else if(this.time > 3.00 && this.time <= 10){
+            left = .3;
+            right = .3;
             intake = -1;
         }
 
